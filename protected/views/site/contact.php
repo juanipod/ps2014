@@ -3,13 +3,12 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' Contacto';
 $this->breadcrumbs=array(
-	'Contact',
+	'Contacto',
 );
 ?>
-
-<h1>Contact Us</h1>
+<h3>Contactese con nosotros</h3>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -32,7 +31,6 @@ If you have business inquiries or other questions, please fill out the following
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
@@ -75,11 +73,10 @@ If you have business inquiries or other questions, please fill out the following
 	<?php endif; ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('Submit', array('class' => 'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
 </div><!-- form -->
 
 <?php endif; ?>
