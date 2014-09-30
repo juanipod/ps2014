@@ -5,21 +5,16 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 <?php $this->beginWidget('bootstrap.widgets.TbHeroUnit',array(
-    'heading'=>'Welcome to '.CHtml::encode(Yii::app()->name),
+    'heading'=>CHtml::encode(Yii::app()->name),
 )); ?>
-
-<p>Congratulations! You have successfully created your Yii application.</p>
+<p class='text-info'>Ingeniería Informática - Universidad Nacional Arturo Jauretche - (2014)</p>
 
 <?php $this->endWidget(); ?>
 
-<p>You may change the content of this page by modifying the following two files:</p>
 
-<ul>
-    <li>View file: <code><?php echo __FILE__; ?></code></li>
-    <li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-    the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-    Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-    should you have any questions.</p>
+<blockquote>
+	Para más detalles sobre cómo desarrollar aún más esta aplicación, por favor,
+	lea la <a href="http://www.yiiframework.com/doc/">documentación</a>.<br>
+	No dude en consultar en el <a href="http://www.yiiframework.com/forum/">foro</a>,
+	en caso de tener alguna pregunta.
+</blockquote>
