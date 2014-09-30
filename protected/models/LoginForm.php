@@ -10,7 +10,7 @@ class LoginForm extends CFormModel
 	public $username;
 	public $password;
 	public $rememberMe;
-
+	
 	private $_identity;
 
 	/**
@@ -22,7 +22,23 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+			array('username, password',
+				'required',
+				),
+			array('username', 'length', 'min'=>7, 'max'=>8),
+			array('password', 'length', 'min'=>6, 'max'=>32),
+			array(
+				'username',
+				'match',
+				'pattern'=>'/^[0-9]+$/i',
+				'message'=>'Solo se permiten números',
+				),
+			//~ array(
+				//~ 'password',
+				//~ 'match',
+				//~ 'pattern'=>'/^[a-z0-9ñ\_]+$/i',
+				//~ 'message'=>'Solo se permiten letras y números',
+				//~ ),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
@@ -36,7 +52,9 @@ class LoginForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'rememberMe'=>'Remember me next time',
+			'rememberMe'=>'Recordar sesión',
+			'username'=>'Usuario',
+			'password'=>'Constraseña',
 		);
 	}
 
@@ -50,7 +68,7 @@ class LoginForm extends CFormModel
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
 			if(!$this->_identity->authenticate())
-				$this->addError('password','Incorrect username or password.');
+				$this->addError('password','usuario o contraseña incorrectos.');
 		}
 	}
 
